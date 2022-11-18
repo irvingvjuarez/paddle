@@ -16,9 +16,7 @@ export class Paddle {
 		ctx.fillRect(x, y, this.width, this.height)
 	}
 
-	update(timestamp) {
-		if (timestamp) {
-			this.position.x += 5 / timestamp
-		}
+	update() {
+		this.position.x += 15
 	}
 }
