@@ -1,4 +1,4 @@
-import { GAME_HEIGHT, GAME_WIDTH } from "./globals.js";
+import { GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE } from "./globals.js";
 
 export class Paddle {
 	constructor() {
@@ -17,7 +17,7 @@ export class Paddle {
 	}
 
 	update(direction) {
-		let movementValue = direction === "ArrowRight" ? 15 : -15
+		let movementValue = direction === "ArrowRight" ? MOVEMENT_VALUE : MOVEMENT_VALUE * -1
 		this.position.x += movementValue
 	}
 }
