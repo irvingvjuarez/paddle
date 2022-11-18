@@ -16,7 +16,8 @@ export class Paddle {
 		ctx.fillRect(x, y, this.width, this.height)
 	}
 
-	update() {
-		this.position.x += 15
+	update(direction) {
+		let movementValue = direction === "ArrowRight" ? 15 : -15
+		this.position.x += movementValue
 	}
 }

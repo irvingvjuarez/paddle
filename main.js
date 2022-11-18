@@ -8,11 +8,10 @@ const paddle = new Paddle()
 paddle.draw(ctx)
 
 function paddleMove(direction) {
-	console.log(direction)
-	// ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+	ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-	// paddle.update();
-	// paddle.draw(ctx);
+	paddle.update(direction);
+	paddle.draw(ctx);
 }
 
 function movementListener() {
