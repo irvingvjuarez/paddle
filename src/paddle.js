@@ -15,4 +15,10 @@ export class Paddle {
 		const { x, y } = this.position
 		ctx.fillRect(x, y, this.width, this.height)
 	}
+
+	update(timestamp) {
+		if (timestamp) {
+			this.position.x += 5 / timestamp
+		}
+	}
 }
