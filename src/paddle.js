@@ -17,7 +17,23 @@ export class Paddle {
 	}
 
 	update(direction) {
-		let movementValue = direction === "ArrowRight" ? MOVEMENT_VALUE : MOVEMENT_VALUE * -1
+		let movementValue = 0;
+
+		switch(direction) {
+			case "ArrowRight":
+				const paddleRightBorder = this.position.x + this.width
+				if (paddleRightBorder <= GAME_WIDTH) {
+					movementValue = MOVEMENT_VALUE
+				}
+			break;
+			case "ArrowLeft":
+				const paddleLeftBorder = this.position.x
+				if (paddleLeftBorder >= 0) {
+					movementValue = MOVEMENT_VALUE * -1
+				}
+			break;
+		}
+
 		this.position.x += movementValue
 	}
 }
