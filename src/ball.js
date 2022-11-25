@@ -1,5 +1,5 @@
+import { paddle } from "../main.js"
 import { GAME_HEIGHT, GAME_WIDTH } from "./globals.js"
-import { clearCanvas } from "./services/clearCanvas.js"
 
 export class Ball {
 	constructor(imgElement) {
@@ -17,6 +17,9 @@ export class Ball {
 		const nextYPosition = yAxis += ySpeed
 
 		if(nextXPosition <= 0 || nextXPosition >= GAME_WIDTH) {
+			const paddleCoordinates = paddle.getCoordinates()
+			console.log(paddleCoordinates)
+
 			this.speed.x = this.speed.x * - 1
 		}
 

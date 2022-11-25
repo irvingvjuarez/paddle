@@ -11,6 +11,15 @@ export class Paddle {
 		}
 	}
 
+	getCoordinates() {
+		const xRight = this.position.x + this.width
+		const xLeft = this.position.x
+		const yTop = this.position.y
+		const yBottom = this.position.y + this.height
+
+		return { xRight, xLeft, yTop, yBottom }
+	}
+
 	draw(ctx) {
 		const { x, y } = this.position
 		ctx.fillRect(x, y, this.width, this.height)
