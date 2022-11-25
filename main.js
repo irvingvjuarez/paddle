@@ -2,11 +2,13 @@ import { Ball } from "./src/ball.js"
 import { movementListener } from "./src/listeners/movementListener.js"
 import { Paddle } from "./src/paddle.js"
 
+const ballElement = document.getElementById("ball-img")
+
 const canvas = document.getElementById("game-screen")
 const ctx = canvas.getContext("2d")
 
 const paddle = new Paddle()
-const ball = new Ball()
+const ball = new Ball(ballElement)
 
 paddle.draw(ctx)
 ball.draw(ctx)
