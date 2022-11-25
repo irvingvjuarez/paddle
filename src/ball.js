@@ -3,16 +3,23 @@ import { clearCanvas } from "./services/clearCanvas.js"
 export class Ball {
 	constructor(imgElement) {
 		this.img = imgElement
-		this.speed = { x: 5, y: 5 }
+		this.size = 25
+		this.speed = { x: 3, y: 5 }
 		this.position = { x: 0, y: 0 }
 	}
 
 	start(ctx) {
 		setInterval(() => {
-			clearCanvas()
+			clearCanvas(
+				this.position.x - this.speed.x,
+				this.position.y - this.speed.y,
+				this.size,
+				this.size
+			)
+
 			this.draw(ctx)
 			this.update()
-		}, this.speed.x * 100)
+		}, 100)
 	}
 
 	draw(ctx) {
@@ -20,13 +27,13 @@ export class Ball {
 			this.img,
 			this.position.x,
 			this.position.y,
-			20,
-			20
+			this.size,
+			this.size
 		)
 	}
 
 	update() {
-		this.position.x += 2
-		this.position.y += 2
+		this.position.x += this.speed.x
+		this.position.y += this.speed.y
 	}
 }
