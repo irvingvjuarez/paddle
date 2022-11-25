@@ -17,13 +17,18 @@ export class Ball {
 		const nextYPosition = yAxis += ySpeed
 
 		if(nextXPosition <= 0 || nextXPosition >= GAME_WIDTH) {
-			const paddleCoordinates = paddle.getCoordinates()
-			console.log(paddleCoordinates)
 
 			this.speed.x = this.speed.x * - 1
 		}
 
 		if(nextYPosition <= 0 || nextYPosition >= GAME_HEIGHT) {
+			this.speed.y = this.speed.y * - 1
+		}
+
+		const paddleCoordinates = paddle.getCoordinates()
+		const { xRight, xLeft, yTop } = paddleCoordinates
+
+		if(nextYPosition >= yTop && nextXPosition <= xRight && nextXPosition >= xLeft) {
 			this.speed.y = this.speed.y * - 1
 		}
 
