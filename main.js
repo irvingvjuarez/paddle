@@ -1,6 +1,7 @@
 import { Ball } from "./src/ball.js"
 import { movementListener } from "./src/listeners/movementListener.js"
 import { Paddle } from "./src/paddle.js"
+import { clearCanvas } from "./src/services/clearCanvas.js";
 
 let initialTime = 0;
 
@@ -17,6 +18,7 @@ const ball = new Ball(ballElement)
 movementListener()
 
 function gameLoop(time) {
+	clearCanvas()
 	paddle.draw(ctx)
 
 	requestAnimationFrame(gameLoop)
