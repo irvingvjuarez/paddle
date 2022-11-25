@@ -20,6 +20,7 @@ movementListener()
 function gameLoop(time) {
 	clearCanvas()
 	paddle.draw(ctx)
+	ball.draw(ctx)
 
 	requestAnimationFrame(gameLoop)
 }

@@ -8,21 +8,10 @@ export class Ball {
 		this.position = { x: 0, y: 0 }
 	}
 
-	start(ctx) {
-		setInterval(() => {
-			clearCanvas(
-				this.position.x - this.speed.x,
-				this.position.y - this.speed.y,
-				this.size,
-				this.size
-			)
-
-			this.draw(ctx)
-			this.update()
-		}, 100)
-	}
-
 	draw(ctx) {
+		this.position.x += this.speed.x
+		this.position.y += this.speed.y
+
 		ctx.drawImage(
 			this.img,
 			this.position.x,
@@ -30,10 +19,5 @@ export class Ball {
 			this.size,
 			this.size
 		)
-	}
-
-	update() {
-		this.position.x += this.speed.x
-		this.position.y += this.speed.y
 	}
 }
