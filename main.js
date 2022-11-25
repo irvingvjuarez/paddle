@@ -11,7 +11,7 @@ const paddle = new Paddle()
 const ball = new Ball(ballElement)
 
 paddle.draw(ctx)
-ball.draw(ctx)
+ball.start(ctx)
 
 movementListener()
 
