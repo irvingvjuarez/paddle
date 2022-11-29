@@ -1,4 +1,4 @@
-import { GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE } from "./globals.js";
+import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE } from "./globals.js";
 
 export class Paddle {
 	constructor() {
@@ -12,9 +12,9 @@ export class Paddle {
 	}
 
 	getCoordinates() {
-		const xRight = this.position.x + this.width
-		const xLeft = this.position.x
-		const yTop = this.position.y
+		const xRight = this.position.x + this.width + (BORDER_PADDING/2)
+		const xLeft = this.position.x - BORDER_PADDING
+		const yTop = this.position.y - BORDER_PADDING
 		const yBottom = this.position.y + this.height
 
 		return { xRight, xLeft, yTop, yBottom }

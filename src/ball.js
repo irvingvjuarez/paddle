@@ -1,5 +1,5 @@
 import { paddle } from "../main.js"
-import { GAME_HEIGHT, GAME_WIDTH } from "./globals.js"
+import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH } from "./globals.js"
 
 export class Ball {
 	constructor(imgElement) {
@@ -16,7 +16,7 @@ export class Ball {
 		const nextXPosition = xAxis += xSpeed
 		const nextYPosition = yAxis += ySpeed
 
-		if(nextXPosition <= 0 || nextXPosition >= GAME_WIDTH) {
+		if(nextXPosition <= 0 || nextXPosition >= GAME_WIDTH - BORDER_PADDING) {
 
 			this.speed.x = this.speed.x * - 1
 		}
