@@ -1,4 +1,5 @@
 import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE } from "./globals.js";
+const halfPadding = BORDER_PADDING / 2
 
 export class Paddle {
 	constructor() {
@@ -31,15 +32,15 @@ export class Paddle {
 		switch(direction) {
 			case "ArrowRight":
 				const paddleRightBorder = this.position.x + this.width
-				if (paddleRightBorder <= GAME_WIDTH) {
-					movementValue = MOVEMENT_VALUE
-				}
+				const collisionRight = paddleRightBorder <= GAME_WIDTH - halfPadding
+
+				if (collisionRight) movementValue = MOVEMENT_VALUE
 			break;
 			case "ArrowLeft":
 				const paddleLeftBorder = this.position.x
-				if (paddleLeftBorder >= 0) {
-					movementValue = MOVEMENT_VALUE * -1
-				}
+				const collisionLeft = paddleLeftBorder >= 0 + halfPadding
+
+				if (collisionLeft) movementValue = MOVEMENT_VALUE * -1
 			break;
 		}
 
