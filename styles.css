@@ -2,7 +2,10 @@
   border: 1px solid;
 }
 
-#ball-img {
+img {
 	display: none;
+}
+
+#ball-img {
 	width: 17px;
 }
