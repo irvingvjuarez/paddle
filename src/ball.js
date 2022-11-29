@@ -16,19 +16,30 @@ export class Ball {
 		const nextXPosition = xAxis += xSpeed
 		const nextYPosition = yAxis += ySpeed
 
-		if(nextXPosition <= 0 || nextXPosition >= GAME_WIDTH - BORDER_PADDING) {
+		const constraintLeftInX = nextXPosition <= 0
+		const constraintRightInX = nextXPosition >= GAME_WIDTH - BORDER_PADDING
+		const constraintInX = constraintLeftInX || constraintRightInX
 
-			this.speed.x = this.speed.x * - 1
-		}
-
-		if(nextYPosition <= 0 || nextYPosition >= GAME_HEIGHT) {
-			this.speed.y = this.speed.y * - 1
-		}
+		const constraintTopInY = nextYPosition <= 0
+		const constraintBottomInY = nextYPosition >= GAME_HEIGHT // GAME_OVER
+		const constraintInY = constraintTopInY || constraintBottomInY
 
 		const paddleCoordinates = paddle.getCoordinates()
 		const { xRight, xLeft, yTop } = paddleCoordinates
+		const collistionPaddleTape = nextYPosition >= yTop
+		const intersectionPaddleRight = nextXPosition <= xRight
+		const instersectionPaddleLeft = nextXPosition >= xLeft
+		const paddleCollision = collistionPaddleTape && intersectionPaddleRight && instersectionPaddleLeft
 
-		if(nextYPosition >= yTop && nextXPosition <= xRight && nextXPosition >= xLeft) {
+		if(constraintInX) {
+			this.speed.x = this.speed.x * - 1
+		}
+
+		if(constraintInY) {
+			this.speed.y = this.speed.y * - 1
+		}
+
+		if(paddleCollision) {
 			this.speed.y = this.speed.y * - 1
 		}
 
