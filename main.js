@@ -1,4 +1,5 @@
 import { Ball } from "./src/ball.js"
+import { Game } from "./src/game.js";
 import { movementListener } from "./src/listeners/movementListener.js"
 import { Paddle } from "./src/paddle.js"
 import { clearCanvas } from "./src/services/clearCanvas.js";
@@ -13,18 +14,9 @@ const ctx = canvas.getContext("2d")
 const paddle = new Paddle()
 const ball = new Ball(ballElement)
 
-// ball.start(ctx)
-
 movementListener()
 
-function gameLoop(time) {
-	clearCanvas()
-	paddle.draw(ctx)
-	ball.draw(ctx)
+const game = new Game()
+game.start()
 
-	requestAnimationFrame(gameLoop)
-}
-
-requestAnimationFrame(gameLoop)
-
-export { ctx, paddle }
+export { ctx, paddle, ball }
