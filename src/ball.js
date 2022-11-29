@@ -1,5 +1,4 @@
-import { paddle } from "../main.js"
-import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH } from "./globals.js"
+import { getCollisions } from "./services/getCollisions.js"
 
 export class Ball {
 	constructor(imgElement) {
@@ -13,23 +12,9 @@ export class Ball {
 		let { x: xAxis, y: yAxis } = this.position
 		let { x: xSpeed, y: ySpeed } = this.speed
 
-		const nextXPosition = xAxis += xSpeed
-		const nextYPosition = yAxis += ySpeed
-
-		const constraintLeftInX = nextXPosition <= 0
-		const constraintRightInX = nextXPosition >= GAME_WIDTH - BORDER_PADDING
-		const constraintInX = constraintLeftInX || constraintRightInX
-
-		const constraintTopInY = nextYPosition <= 0
-		const constraintBottomInY = nextYPosition >= GAME_HEIGHT // GAME_OVER
-		const constraintInY = constraintTopInY || constraintBottomInY
-
-		const paddleCoordinates = paddle.getCoordinates()
-		const { xRight, xLeft, yTop } = paddleCoordinates
-		const collistionPaddleTape = nextYPosition >= yTop
-		const intersectionPaddleRight = nextXPosition <= xRight
-		const instersectionPaddleLeft = nextXPosition >= xLeft
-		const paddleCollision = collistionPaddleTape && intersectionPaddleRight && instersectionPaddleLeft
+		const collisionsConfig = { xAxis, yAxis, xSpeed, ySpeed }
+		const collisionsInfo = getCollisions(collisionsConfig)
+		const { constraintInX, constraintInY, paddleCollision } = collisionsInfo
 
 		if(constraintInX) {
 			this.speed.x = this.speed.x * - 1
