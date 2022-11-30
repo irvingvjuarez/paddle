@@ -8,6 +8,14 @@ export class Ball {
 		this.position = { x: 0, y: 0 }
 	}
 
+	changeDirectionInX () {
+		this.speed.x = this.speed.x * - 1
+	}
+
+	changeDirectionInY () {
+		this.speed.y = this.speed.y * - 1
+	}
+
 	draw(ctx) {
 		let { x: xAxis, y: yAxis } = this.position
 		let { x: xSpeed, y: ySpeed } = this.speed
@@ -17,15 +25,15 @@ export class Ball {
 		const { constraintInX, constraintInY, paddleCollision } = collisionsInfo
 
 		if(constraintInX) {
-			this.speed.x = this.speed.x * - 1
+			this.changeDirectionInX()
 		}
 
 		if(constraintInY) {
-			this.speed.y = this.speed.y * - 1
+			this.changeDirectionInY()
 		}
 
 		if(paddleCollision) {
-			this.speed.y = this.speed.y * - 1
+			this.changeDirectionInY()
 		}
 
 		this.position.x += this.speed.x
