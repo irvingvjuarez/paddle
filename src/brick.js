@@ -1,14 +1,16 @@
 export class Brick {
-	constructor(imgElement, position =  { x: 0, y: 0 }) {
+	constructor(imgElement, coords =  { x: 0, y: 0, w: 100, h: 50 }) {
 		this.img = imgElement
-		this.position = position
+		this.coords = coords
 	}
 
 	draw(ctx) {
 		ctx.drawImage(
 			this.img,
-			this.position.x,
-			this.position.y
+			this.coords.x,
+			this.coords.y,
+			this.coords.w,
+			this.coords.h
 		)
 	}
 }
