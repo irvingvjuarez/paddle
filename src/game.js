@@ -17,7 +17,7 @@ export class Game {
 		const brickHeight = (brickWidth * brickElement.height) / brickElement.width
 
 		for(let i = 0; i < this.brickColumns; i++) {
-			const brickCoords = {x: i * brickWidth, y: brickHeight, w: brickWidth, h: brickHeight}
+			const brickCoords = {x: i * brickWidth, y: 0, w: brickWidth, h: brickHeight}
 			const brick = new Brick(brickElement, brickCoords)
 			this.brickObjects.push(brick)
 		}

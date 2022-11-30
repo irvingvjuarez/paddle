@@ -5,8 +5,7 @@ export const gameLoop = (time, brickObjects) => {
 	clearCanvas()
 	paddle.draw(ctx)
 	ball.draw(ctx)
+	brickObjects.forEach(brick => brick.draw(ctx))
 
-	console.log(brickObjects)
-
-	requestAnimationFrame(gameLoop)
+	requestAnimationFrame((newTime) => gameLoop(newTime, brickObjects))
 }
