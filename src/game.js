@@ -1,5 +1,6 @@
 import { ctx } from "../main.js"
 import { Brick } from "./brick.js"
+import { GAME_WIDTH } from "./globals.js"
 import { gameLoop } from "./services/gameLoop.js"
 const brickElement = document.getElementById("brick-img")
 
@@ -12,6 +13,11 @@ export class Game {
 	}
 
 	drawBricks() {
+		const brickWidth = GAME_WIDTH / this.brickColumns;
+		const brickHeight = (brickWidth * brickElement.height) / brickElement.width
+
+		console.log({ brickWidth, brickHeight })
+
 		for(let i = 0; i < this.brickColumns; i++) {
 			const brick = new Brick(brickElement)
 			this.brickObjects.push(brick)

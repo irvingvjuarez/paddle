@@ -1,7 +1,7 @@
 export class Brick {
-	constructor(imgElement) {
+	constructor(imgElement, position =  { x: 0, y: 0 }) {
 		this.img = imgElement
-		this.position = { x: 0, y: 0 }
+		this.position = position
 	}
 
 	draw(ctx) {
