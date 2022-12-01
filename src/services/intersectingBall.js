@@ -5,14 +5,24 @@ export const intersectingBall = (coords) => {
 	const { x: objectX, y: objectY, w: objectW, h: objectH } = coords
 	const ballSize = ball.size
 
-	const intersectionXRight = ballX + ballSize > objectX && ballX + ballSize < objectX + objectW
-	const intersectionXLeft = ballX < objectX + objectW && ballX + ballSize > objectX
-	const intersectionXTop = intersectionXRight && intersectionXLeft
+	const ballXEnd = ballX + ballSize
+	const ballYEnd = ballY + ballSize
 
-	const intersectionY = ballY <= objectY + objectH
-	const intersectionBallTop = intersectionXTop && intersectionY
+	const objectXEnd = objectX + objectW
+	const objectYEnd = objectY + objectH
+
+	const intersectionXRight = ballXEnd > objectX && ballXEnd < objectXEnd
+	const intersectionXLeft = ballX < objectXEnd && ballXEnd > objectX
+	const intersectionX = intersectionXRight && intersectionXLeft
+
+	const intersectionYTop = ballY <= objectYEnd
+	const intersectionYBottom = ballYEnd >= objectYEnd
+
+	const intersectionBallTop = intersectionX && intersectionYTop
+	const intersectionBallBottom = intersectionX && intersectionYBottom
 
 	return {
-		intersectionBallTop
+		intersectionBallTop,
+		intersectionBallBottom
 	}
 }
