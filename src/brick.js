@@ -1,4 +1,5 @@
 import { ball } from "../main.js"
+import { intersectingBall } from "./services/intersectingBall.js"
 
 export class Brick {
 	constructor(imgElement, coords =  { x: 0, y: 0, w: 100, h: 50 }) {
@@ -7,18 +8,9 @@ export class Brick {
 	}
 
 	draw(ctx) {
-		const { x: ballX, y: ballY } = ball.position
-		const ballSize = ball.size
+		const { intersectionBallTop } = intersectingBall(this.coords)
 
-		// const intersectionX = ballX >= this.coords.x && ballX + ballSize <= this.coords.x + this.coords.w
-		const intersectionXRight = ballX + ballSize > this.coords.x && ballX + ballSize < this.coords.x + this.coords.w
-		const intersectionXLeft = ballX < this.coords.x + this.coords.w && ballX + ballSize > this.coords.x
-		const intersectionX = intersectionXRight && intersectionXLeft
-
-		const intersectionY = ballY <= this.coords.y + this.coords.h
-		const brickIntersection = intersectionX && intersectionY
-
-		if (brickIntersection) {
+		if (intersectionBallTop) {
 			ball.changeDirectionInY()
 		}
 
