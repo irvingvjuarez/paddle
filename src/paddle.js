@@ -1,4 +1,6 @@
+import { ball } from "../main.js";
 import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE, PADDLE_HEIGHT, PADDLE_WIDTH } from "./globals.js";
+import { intersectingBall } from "./services/intersectingBall.js";
 const halfPadding = BORDER_PADDING / 2
 
 export class Paddle {
@@ -21,8 +23,18 @@ export class Paddle {
 	}
 
 	draw(ctx) {
-		const { x, y } = this.coords
-		ctx.fillRect(x, y, this.coords.w, this.coords.h)
+		const { intersectionBallBottom } = intersectingBall(this.coords)
+
+		if(intersectionBallBottom) {
+			ball.changeDirectionInY()
+		}
+
+		ctx.fillRect(
+			this.coords.x,
+			this.coords.y,
+			this.coords.w,
+			this.coords.h
+		)
 	}
 
 	update(direction) {

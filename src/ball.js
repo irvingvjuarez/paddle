@@ -22,17 +22,13 @@ export class Ball {
 
 		const collisionsConfig = { xAxis, yAxis, xSpeed, ySpeed }
 		const collisionsInfo = getCollisions(collisionsConfig)
-		const { constraintInX, constraintInY, paddleCollision } = collisionsInfo
+		const { constraintInX, constraintInY } = collisionsInfo
 
 		if(constraintInX) {
 			this.changeDirectionInX()
 		}
 
 		if(constraintInY) {
-			this.changeDirectionInY()
-		}
-
-		if(paddleCollision) {
 			this.changeDirectionInY()
 		}
 
