@@ -1,29 +1,28 @@
-import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE } from "./globals.js";
+import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE, PADDLE_HEIGHT, PADDLE_WIDTH } from "./globals.js";
 const halfPadding = BORDER_PADDING / 2
 
 export class Paddle {
 	constructor() {
-		this.width = 150;
-		this.height = 20;
-
-		this.position = {
-			x: (GAME_WIDTH / 2) - (this.width / 2),
-			y: GAME_HEIGHT - this.height - 10
+		this.coords = {
+			x: (GAME_WIDTH / 2) - (PADDLE_WIDTH / 2),
+			y: GAME_HEIGHT - PADDLE_HEIGHT - 10,
+			w: PADDLE_WIDTH,
+			h: PADDLE_HEIGHT
 		}
 	}
 
 	getCoordinates() {
-		const xRight = this.position.x + this.width + (BORDER_PADDING/2)
-		const xLeft = this.position.x - BORDER_PADDING
-		const yTop = this.position.y - BORDER_PADDING
-		const yBottom = this.position.y + this.height
+		const xRight = this.coords.x + this.coords.w + (BORDER_PADDING/2)
+		const xLeft = this.coords.x - BORDER_PADDING
+		const yTop = this.coords.y - BORDER_PADDING
+		const yBottom = this.coords.y + this.coords.h
 
 		return { xRight, xLeft, yTop, yBottom }
 	}
 
 	draw(ctx) {
-		const { x, y } = this.position
-		ctx.fillRect(x, y, this.width, this.height)
+		const { x, y } = this.coords
+		ctx.fillRect(x, y, this.coords.w, this.coords.h)
 	}
 
 	update(direction) {
@@ -31,19 +30,19 @@ export class Paddle {
 
 		switch(direction) {
 			case "ArrowRight":
-				const paddleRightBorder = this.position.x + this.width
+				const paddleRightBorder = this.coords.x + this.coords.w
 				const collisionRight = paddleRightBorder <= GAME_WIDTH - halfPadding
 
 				if (collisionRight) movementValue = MOVEMENT_VALUE
 			break;
 			case "ArrowLeft":
-				const paddleLeftBorder = this.position.x
+				const paddleLeftBorder = this.coords.x
 				const collisionLeft = paddleLeftBorder >= 0 + halfPadding
 
 				if (collisionLeft) movementValue = MOVEMENT_VALUE * -1
 			break;
 		}
 
-		this.position.x += movementValue
+		this.coords.x += movementValue
 	}
 }
