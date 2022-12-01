@@ -9,7 +9,12 @@ export class Brick {
 	draw(ctx) {
 		const { x: ballX, y: ballY } = ball.position
 		const ballSize = ball.size
-		const intersectionX = ballX >= this.coords.x && ballX + ballSize <= this.coords.x + this.coords.w
+
+		// const intersectionX = ballX >= this.coords.x && ballX + ballSize <= this.coords.x + this.coords.w
+		const intersectionXRight = ballX + ballSize > this.coords.x && ballX + ballSize < this.coords.x + this.coords.w
+		const intersectionXLeft = ballX < this.coords.x + this.coords.w && ballX + ballSize > this.coords.x
+		const intersectionX = intersectionXRight && intersectionXLeft
+
 		const intersectionY = ballY <= this.coords.y + this.coords.h
 		const brickIntersection = intersectionX && intersectionY
 

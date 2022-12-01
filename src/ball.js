@@ -5,7 +5,7 @@ export class Ball {
 		this.img = imgElement
 		this.size = 25
 		this.speed = { x: 3, y: 5 }
-		this.position = { x: 0, y: 0 }
+		this.position = { x: 0, y: 50 }
 	}
 
 	changeDirectionInX () {
