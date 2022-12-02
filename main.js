@@ -17,4 +17,4 @@ game.start()
 
 movementListener()
 
-export { ctx, paddle, ball }
+export { ctx, paddle, ball, game }

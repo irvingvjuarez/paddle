@@ -12,15 +12,24 @@ export class Game {
 		this.drawBricks()
 	}
 
-	drawBricks() {
+	drawBricks () {
 		const brickWidth = GAME_WIDTH / this.brickColumns;
 		const brickHeight = (brickWidth * brickElement.height) / brickElement.width
 
 		for(let i = 0; i < this.brickColumns; i++) {
-			const brickCoords = {x: i * brickWidth, y: 0, w: brickWidth, h: brickHeight}
+			const brickCoords = {
+				x: i * brickWidth, y: 0,
+				w: brickWidth, h: brickHeight,
+				id: i * this.brickColumns * this.brickRows
+			}
 			const brick = new Brick(brickElement, brickCoords)
 			this.brickObjects.push(brick)
 		}
+	}
+
+	removeBrick (brickID) {
+		const brickIndex = this.brickObjects.findIndex(brick => brick.id === brickID)
+		this.brickObjects.splice(brickIndex, 1)
 	}
 
 	start() {

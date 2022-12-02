@@ -1,10 +1,11 @@
-import { ball } from "../main.js"
+import { ball, game } from "../main.js"
 import { intersectingBall } from "./services/intersectingBall.js"
 
 export class Brick {
 	constructor(imgElement, coords =  { x: 0, y: 0, w: 100, h: 50 }) {
 		this.img = imgElement
 		this.coords = coords
+		this.id = coords.id
 	}
 
 	draw(ctx) {
@@ -12,6 +13,7 @@ export class Brick {
 
 		if (intersectionBallTop) {
 			ball.changeDirectionInY()
+			game.removeBrick(this.id)
 		}
 
 		ctx.drawImage(
