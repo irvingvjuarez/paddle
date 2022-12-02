@@ -23,7 +23,11 @@ export class Paddle {
 	}
 
 	draw(ctx) {
-		const { intersectionBallBottom } = intersectingBall(this.coords)
+		const intersectionBallConfig = {
+			...this.coords,
+			y: this.coords.y - PADDLE_HEIGHT
+		}
+		const { intersectionBallBottom } = intersectingBall(intersectionBallConfig)
 
 		if(intersectionBallBottom) {
 			ball.changeDirectionInY()
