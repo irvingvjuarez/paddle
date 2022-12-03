@@ -16,13 +16,18 @@ export class Brick {
 	draw(ctx) {
 		if (this.available) {
 			const { intersectionBallTop, intersectionBallLeft, intersectionBallRight } = intersectingBall(this.coords)
+			let changeDirection
 
-			if (intersectionBallLeft || intersectionBallRight) {
-				console.log("Intersecting brick on left or right")
-			}
+			if (intersectionBallLeft || intersectionBallRight) changeDirection = "x"
+			if (intersectionBallTop) changeDirection = "y"
 
-			if (intersectionBallTop) {
-				ball.changeDirectionInY()
+			if (changeDirection) {
+				if (changeDirection === "x") {
+					ball.changeDirectionInX()
+				} else {
+					ball.changeDirectionInY()
+				}
+
 				this.toggleAvailability()
 			}
 
