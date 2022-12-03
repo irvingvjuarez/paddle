@@ -1,4 +1,4 @@
-import { ball, game } from "../main.js"
+import { ball } from "../main.js"
 import { intersectingBall } from "./services/intersectingBall.js"
 
 export class Brick {
@@ -6,22 +6,29 @@ export class Brick {
 		this.img = imgElement
 		this.coords = coords
 		this.id = coords.id
+		this.available = true
+	}
+
+	toggleAvailability () {
+		this.available = !this.available
 	}
 
 	draw(ctx) {
-		const { intersectionBallTop } = intersectingBall(this.coords)
+		if (this.available) {
+			const { intersectionBallTop } = intersectingBall(this.coords)
 
-		if (intersectionBallTop) {
-			ball.changeDirectionInY()
-			game.removeBrick(this.id)
+			if (intersectionBallTop) {
+				ball.changeDirectionInY()
+				this.toggleAvailability()
+			}
+
+			ctx.drawImage(
+				this.img,
+				this.coords.x,
+				this.coords.y,
+				this.coords.w,
+				this.coords.h
+			)
 		}
-
-		ctx.drawImage(
-			this.img,
-			this.coords.x,
-			this.coords.y,
-			this.coords.w,
-			this.coords.h
-		)
 	}
 }

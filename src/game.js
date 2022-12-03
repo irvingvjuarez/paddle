@@ -27,11 +27,6 @@ export class Game {
 		}
 	}
 
-	removeBrick (brickID) {
-		const brickIndex = this.brickObjects.findIndex(brick => brick.id === brickID)
-		this.brickObjects.splice(brickIndex, 1)
-	}
-
 	start() {
 		requestAnimationFrame((time) => gameLoop(time, this.brickObjects))
 	}
