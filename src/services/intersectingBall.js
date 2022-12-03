@@ -15,13 +15,18 @@ export const intersectingBall = (coords) => {
 	const intersectionXLeft = ballX < objectXEnd && ballXEnd > objectX
 	const intersectionX = intersectionXRight && intersectionXLeft
 
+	const surpassIntersectionYTop = ballY > objectYEnd
 	const intersectionYTop = ballY <= objectYEnd
 	const intersectionYBottom = ballYEnd >= objectYEnd
 
+	const intersectionBallLeft = surpassIntersectionYTop && intersectionXLeft
+	const intersectionBallRight = surpassIntersectionYTop && intersectionXRight
 	const intersectionBallTop = intersectionX && intersectionYTop
 	const intersectionBallBottom = intersectionX && intersectionYBottom
 
 	return {
+		intersectionBallLeft,
+		intersectionBallRight,
 		intersectionBallTop,
 		intersectionBallBottom
 	}
