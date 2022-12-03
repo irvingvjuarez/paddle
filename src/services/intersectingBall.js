@@ -17,18 +17,26 @@ export const intersectingBall = (coords) => {
 	const intersectionX = intersectionXRight && intersectionXLeft
 
 	const surpassIntersectionYTop = ballY < objectYEnd - BALL_SPEED_Y
+	const surpassIntersectionYBottom = ballYEnd > objectY + BALL_SPEED_Y
+	const ballInsideObjectInY = surpassIntersectionYBottom && surpassIntersectionYTop
+
 	const intersectionYTop = ballY <= objectYEnd
 	const intersectionYBottom = ballYEnd >= objectYEnd
 
-	const intersectionBallLeft = surpassIntersectionYTop && intersectionXLeft
-	const intersectionBallRight = surpassIntersectionYTop && intersectionXRight
+	const intersectionBallLeft = ballInsideObjectInY && intersectionXLeft
+	const intersectionBallRight = ballInsideObjectInY && intersectionXRight
 	const intersectionBallTop = intersectionX && intersectionYTop
 	const intersectionBallBottom = intersectionX && intersectionYBottom
+
+	const intersectionXAxis = intersectionBallLeft || intersectionBallRight
+	const intersectionYAxis = intersectionBallTop || intersectionBallBottom
 
 	return {
 		intersectionBallLeft,
 		intersectionBallRight,
 		intersectionBallTop,
-		intersectionBallBottom
+		intersectionBallBottom,
+		intersectionXAxis,
+		intersectionYAxis
 	}
 }
