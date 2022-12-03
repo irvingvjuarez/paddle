@@ -5,3 +5,5 @@ export const MOVEMENT_DIRECTIONS = ["ArrowLeft", "ArrowRight"]
 export const BORDER_PADDING = 17
 export const PADDLE_WIDTH = 150;
 export const PADDLE_HEIGHT = 20;
+export const BALL_SPEED_X = 3;
+export const BALL_SPEED_Y = 5;

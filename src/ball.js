@@ -1,10 +1,11 @@
+import { BALL_SPEED_X, BALL_SPEED_Y } from "./globals.js"
 import { getCollisions } from "./services/getCollisions.js"
 
 export class Ball {
 	constructor(imgElement) {
 		this.img = imgElement
 		this.size = 25
-		this.speed = { x: 3, y: 5 }
+		this.speed = { x: BALL_SPEED_X, y: BALL_SPEED_Y }
 		this.position = { x: 0, y: 50 }
 	}
 

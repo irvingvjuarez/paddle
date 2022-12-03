@@ -1,4 +1,5 @@
 import { ball } from "../../main.js"
+import { BALL_SPEED_Y } from "../globals.js"
 
 export const intersectingBall = (coords) => {
 	const { x: ballX, y: ballY } = ball.position
@@ -15,7 +16,7 @@ export const intersectingBall = (coords) => {
 	const intersectionXLeft = ballX < objectXEnd && ballXEnd > objectX
 	const intersectionX = intersectionXRight && intersectionXLeft
 
-	const surpassIntersectionYTop = ballY > objectYEnd
+	const surpassIntersectionYTop = ballY < objectYEnd - BALL_SPEED_Y
 	const intersectionYTop = ballY <= objectYEnd
 	const intersectionYBottom = ballYEnd >= objectYEnd
 
