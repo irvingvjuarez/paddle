@@ -1,30 +1,38 @@
 import { ctx } from "../main.js"
 import { Brick } from "./brick.js"
 import { GAME_WIDTH } from "./globals.js"
+import { LEVEL_ONE } from "./levels.js"
 import { gameLoop } from "./services/gameLoop.js"
 const brickElement = document.getElementById("brick-img")
 
 export class Game {
-	constructor (brickConfig) {
-		this.brickRows = brickConfig.rows || 1
-		this.brickColumns = brickConfig.columns || 10
+	constructor () {
 		this.brickObjects = []
 		this.drawBricks()
 	}
 
-	drawBricks () {
-		const brickWidth = GAME_WIDTH / this.brickColumns;
+	drawBricks (level = LEVEL_ONE) {
+		const brickRows = level.length;
+		const brickColumns = level[0].length;
+
+		const brickWidth = GAME_WIDTH / brickColumns;
 		const brickHeight = (brickWidth * brickElement.height) / brickElement.width
 
-		for(let i = 0; i < this.brickColumns; i++) {
-			const brickCoords = {
-				x: i * brickWidth, y: 0,
-				w: brickWidth, h: brickHeight,
-				id: i * this.brickColumns * this.brickRows
-			}
-			const brick = new Brick(brickElement, brickCoords)
-			this.brickObjects.push(brick)
-		}
+		level.forEach((row, rowIndex) => {
+			row.forEach((brick, columnIndex) => {
+
+				if (brick) {
+					const brickCoords = {
+						x: columnIndex * brickWidth, y: rowIndex * brickHeight,
+						w: brickWidth, h: brickHeight,
+						id: rowIndex * columnIndex
+					}
+					const brick = new Brick(brickElement, brickCoords)
+					this.brickObjects.push(brick)
+				}
+
+			})
+		})
 	}
 
 	start() {

@@ -11,8 +11,7 @@ const ctx = canvas.getContext("2d")
 const paddle = new Paddle()
 const ball = new Ball(ballElement)
 
-const brickConfig = { rows: 2, columns: 10 }
-const game = new Game(brickConfig)
+const game = new Game()
 game.start()
 
 movementListener()
