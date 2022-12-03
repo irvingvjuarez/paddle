@@ -15,10 +15,10 @@ export class Brick {
 
 	draw(ctx) {
 		if (this.available) {
-			const { intersectionBallTop, intersectionXAxis } = intersectingBall(this.coords)
+			const { intersectionBallTop, intersectionXAxis, intersectionYAxis } = intersectingBall(this.coords)
 			let changeDirection
 
-			if (!intersectionBallTop && intersectionXAxis) changeDirection = "x"
+			if (!intersectionYAxis && intersectionXAxis) changeDirection = "x"
 			if (intersectionBallTop) changeDirection = "y"
 
 			if (changeDirection) {
