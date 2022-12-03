@@ -18,7 +18,7 @@ export class Brick {
 			const { intersectionBallTop, intersectionBallLeft, intersectionBallRight } = intersectingBall(this.coords)
 			let changeDirection
 
-			if (intersectionBallLeft || intersectionBallRight) changeDirection = "x"
+			if (!intersectionBallTop && intersectionBallLeft || intersectionBallRight) changeDirection = "x"
 			if (intersectionBallTop) changeDirection = "y"
 
 			if (changeDirection) {
