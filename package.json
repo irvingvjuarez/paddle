@@ -3,7 +3,7 @@
   "name": "paddle",
   "version": "1.0.0",
   "description": "Paddle videogame\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[DMultiplayer paddle game in js",
-  "main": "main.js",
+  "main": "server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
