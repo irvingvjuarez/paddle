@@ -1,3 +1,26 @@
 {
-	"type": "module"
+  "type": "module",
+  "name": "paddle",
+  "version": "1.0.0",
+  "description": "Paddle videogame\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[DMultiplayer paddle game in js",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irvingvjuarez/paddle.git"
+  },
+  "keywords": [
+    "js",
+    "paddle",
+    "videogames",
+    "nodejs"
+  ],
+  "author": "irvingjuarez274@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/irvingvjuarez/paddle/issues"
+  },
+  "homepage": "https://github.com/irvingvjuarez/paddle#readme"
 }
