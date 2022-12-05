@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/irvingvjuarez/paddle/issues"
   },
-  "homepage": "https://github.com/irvingvjuarez/paddle#readme"
+  "homepage": "https://github.com/irvingvjuarez/paddle#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
