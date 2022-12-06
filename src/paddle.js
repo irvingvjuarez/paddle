@@ -1,6 +1,8 @@
 import { ball } from "../main.js";
 import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE, PADDLE_HEIGHT, PADDLE_WIDTH } from "./globals.js";
 import { intersectingBall } from "./services/intersectingBall.js";
+import { sendCoords } from "./services/sendCoords.js";
+
 const halfPadding = BORDER_PADDING / 2
 
 export class Paddle {
@@ -60,5 +62,7 @@ export class Paddle {
 		}
 
 		this.coords.x += movementValue
+
+		sendCoords(this.coords)
 	}
 }

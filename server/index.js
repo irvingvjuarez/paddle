@@ -1,9 +1,13 @@
 import express from "express"
+import cors from "cors"
+
 import { Player } from "./player.js";
 const PORT_NUMBER = 3000;
+const players = []
 
 const app = express()
-const players = []
+app.use(cors())
+app.use(express.json())
 
 // GET
 app.get("/join", (_req, res) => {
@@ -11,9 +15,15 @@ app.get("/join", (_req, res) => {
 	const newPlayer = new Player(id)
 	players.push(newPlayer)
 
-	res.setHeader("Access-Control-Allow-Origin", "*")
-
 	res.send(id)
+})
+
+// POST
+app.post("/paddle/coords", (req, res) => {
+	const paddleCoords = req.body.coords || {}
+	console.log({ players, paddleCoords })
+
+	res.end()
 })
 
 app.listen(PORT_NUMBER, () => {
