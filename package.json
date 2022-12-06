@@ -11,6 +11,12 @@
     "type": "git",
     "url": "git+https://github.com/irvingvjuarez/paddle.git"
   },
+	"_moduleAliases": {
+		"@src": "./src",
+		"@app": "./",
+		"@server": "./server",
+		"@pages": "./pages"
+	},
   "keywords": [
     "js",
     "paddle",
@@ -25,7 +31,8 @@
   "homepage": "https://github.com/irvingvjuarez/paddle#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "module-alias": "^2.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

@@ -4,6 +4,9 @@ import { movementListener } from "./src/listeners/movementListener.js";
 import { Paddle } from "./src/paddle.js";
 // import { joinGame } from "./src/services/joinGame.js";
 
+// Registering path aliases
+require("module-alias/register")
+
 const ballElement = document.getElementById("ball-img")
 
 const canvas = document.getElementById("game-screen")
