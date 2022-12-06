@@ -1,0 +1,46 @@
+.main-section{
+	place-self: center;
+}
+
+.main-section > h2 {
+	text-align: center;
+}
+
+.main-section > form {
+	display: grid;
+	gap: 10px;
+	width: 100%;
+}
+
+.multi-player-form-card {
+	width: 100%;
+	max-width: 350px;
+	height: 150px;
+
+	display: grid;
+	place-items: center;
+	font-size: 1.2rem;
+	font-weight: 600;
+	letter-spacing: 3px;
+
+	border: 1px solid var(--secondary);
+}
+
+.multi-player-form-card > input {
+	display: none;
+}
+
+.multi-player-form-submit {
+	width: 100%;
+	max-width: 500px;
+	margin: 3px auto;
+
+	padding: 10px 5px;
+	font-size: 1rem;
+	letter-spacing: 3px;
+
+	border: none;
+	border-radius: 9px;
+	background-color: var(--secondary);
+	color: white;
+}

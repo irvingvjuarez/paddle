@@ -1,0 +1,33 @@
+main > section > img {
+	width: 100%;
+}
+
+.main-section > article {
+	width: 100%;
+
+	padding-block: 10px;
+	display: grid;
+	gap: 10px;
+	grid-column: auto;
+	place-items: center;
+}
+
+.main-section > article > a {
+	text-decoration: none;
+	color: var(--secondary);
+	background-color: var(--primary);
+	padding: 5px 10px;
+	border-radius: 9px;
+	border: 2px solid black;
+
+	font-size: 1.2rem;
+	font-weight: bold;
+	letter-spacing: 3px;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 550px) {
+	.main-section > article {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
