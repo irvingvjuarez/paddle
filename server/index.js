@@ -1,11 +1,19 @@
 import express from "express"
+import { Player } from "./player.js";
 const PORT_NUMBER = 3000;
 
 const app = express()
+const players = []
 
 // GET
-app.get("/", (req, res) => {
-	res.send("Hello from express.js")
+app.get("/join", (_req, res) => {
+	const id = Math.random().toString();
+	const newPlayer = new Player(id)
+	players.push(newPlayer)
+
+	res.setHeader("Access-Control-Allow-Origin", "*")
+
+	res.send(id)
 })
 
 app.listen(PORT_NUMBER, () => {

@@ -2,6 +2,7 @@ import { Ball } from "./src/ball.js"
 import { Game } from "./src/game.js";
 import { movementListener } from "./src/listeners/movementListener.js";
 import { Paddle } from "./src/paddle.js";
+import { joinGame } from "./src/services/joinGame.js";
 
 const ballElement = document.getElementById("ball-img")
 
@@ -13,6 +14,8 @@ const ball = new Ball(ballElement)
 
 const game = new Game()
 game.start()
+
+joinGame()
 
 movementListener()
 
