@@ -20,7 +20,7 @@ app.get("/join", (_req, res) => {
 
 // POST
 app.post("/paddle/coords", (req, res) => {
-	const paddleCoords = req.body.coords || {}
+	const paddleCoords = req.body || {}
 	console.log({ players, paddleCoords })
 
 	res.end()
