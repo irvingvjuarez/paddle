@@ -1,0 +1,11 @@
+#game-screen {
+  border: 1px solid;
+}
+
+img {
+	display: none;
+}
+
+#ball-img {
+	width: 17px;
+}
