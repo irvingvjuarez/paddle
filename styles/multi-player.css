@@ -8,13 +8,14 @@
 
 .main-section > form {
 	display: grid;
+	justify-items: center;
 	gap: 10px;
 	width: 100%;
 }
 
 .multi-player-form-card {
 	width: 100%;
-	max-width: 350px;
+	max-width: 500px;
 	height: 150px;
 
 	display: grid;
@@ -30,9 +31,21 @@
 	display: none;
 }
 
+.multi-player-form-card > input:checked + label {
+	background-color: var(--primary);
+	color: white;
+}
+
+.multi-player-form-card > label {
+	width: 100%;
+	height: inherit;
+	display: grid;
+	place-items: center;
+}
+
 .multi-player-form-submit {
 	width: 100%;
-	max-width: 500px;
+	max-width: 350px;
 	margin: 3px auto;
 
 	padding: 10px 5px;
