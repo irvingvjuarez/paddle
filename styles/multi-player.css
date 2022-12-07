@@ -43,6 +43,10 @@
 	place-items: center;
 }
 
+.multi-player-form-submit:disabled {
+	background-color: rgb(194, 198, 198);
+	color: rgb(135, 139, 139);
+}
 .multi-player-form-submit {
 	width: 100%;
 	max-width: 350px;
