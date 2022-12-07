@@ -48,6 +48,7 @@
 	color: rgb(135, 139, 139);
 }
 .multi-player-form-submit {
+	cursor: pointer;
 	width: 100%;
 	max-width: 350px;
 	margin: 3px auto;
