@@ -2,9 +2,17 @@ export const codeGameVariant = (mainContainer) => {
 	mainContainer.innerHTML = `
 		<section class="code-game-container">
 			<form class="code-game-form">
-				<input type="text" placeholder="Enter code..." />
+				<div class="code-game-input">
+					<label for="code">Enter code</label>
+					<input id="code" type="text" placeholder="Ej. 93827" />
+				</div>
 
-				<button>Join game</button>
+				<div class="code-game-input">
+					<label for="nickname">Enter nickname</label>
+					<input id="nickname" type="text" placeholder="Ej. Bellakat" />
+				</div>
+
+				<button type="button">Join game</button>
 			</form>
 		</section>
 	`
