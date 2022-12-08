@@ -5,6 +5,7 @@ const newGameInput = document.getElementById("new-game")
 const codeGameInput = document.getElementById("code-game")
 const nextbutton = document.querySelector(".multi-player-form-submit")
 const form = document.querySelector(".multi-player-form")
+const mainContainer = document.querySelector("main")
 
 const multiPlayerInputs = [newGameInput, codeGameInput]
 let isNextButtonAvailable = false
@@ -27,8 +28,8 @@ form.addEventListener("submit", (evt) => {
 	const chosenValue = multiPlayerInputs.find(input => input.checked).id
 
 	if (chosenValue === "new-game") {
-		newGameVariant()
+		newGameVariant(mainContainer)
 	} else if (chosenValue === "code-game") {
-		codeGameVariant()
+		codeGameVariant(mainContainer)
 	}
 })

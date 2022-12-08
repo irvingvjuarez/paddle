@@ -1,6 +1,5 @@
-export const newGameVariant = () => {
+export const newGameVariant = (mainContainer) => {
 	const newGameCode = Math.ceil(Math.random() * 60000);
-	const mainContainer = document.querySelector("main")
 
 	mainContainer.innerHTML = `
 		<section class="new-game-container">
