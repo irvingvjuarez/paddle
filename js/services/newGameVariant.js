@@ -11,7 +11,7 @@ export const newGameVariant = (mainContainer) => {
 				<h3>Current room members</h3>
 
 				<article>
-					<span>You</span>
+					<span class="room-member">You</span>
 				</article>
 			</section>
 		</section>

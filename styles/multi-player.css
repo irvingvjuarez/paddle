@@ -62,3 +62,33 @@
 	background-color: var(--secondary);
 	color: white;
 }
+
+.new-game-container > h2 {
+	color: var(--secondary);
+}
+.game-code {
+	display: block;
+	width: fit-content;
+	padding: 5px 10px;
+	margin: 0 auto;
+	font-size: 1.2rem;
+	letter-spacing: 2px;
+
+	border-bottom: 1px solid var(--secondary);
+}
+.game-room {
+	border: 1px solid gray;
+	margin-top: 20px;
+	padding: 10px;
+	text-align: center;
+}
+.room-member {
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 5px;
+
+	border-radius: 5px;
+	background-color: var(--secondary);
+	color: white;
+	width: fit-content;
+}
