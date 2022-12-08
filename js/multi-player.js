@@ -1,3 +1,6 @@
+import { codeGameVariant } from "./services/codeGameVariant.js"
+import { newGameVariant } from "./services/newGameVariant.js"
+
 const newGameInput = document.getElementById("new-game")
 const codeGameInput = document.getElementById("code-game")
 const nextbutton = document.querySelector(".multi-player-form-submit")
@@ -21,6 +24,11 @@ multiPlayerInputs.forEach(input => {
 form.addEventListener("submit", (evt) => {
 	evt.preventDefault()
 
-	const chosenValue = multiPlayerInputs.find(input => input.checked)
-	console.log(chosenValue.id)
+	const chosenValue = multiPlayerInputs.find(input => input.checked).id
+
+	if (chosenValue === "new-game") {
+		newGameVariant()
+	} else if (chosenValue === "code-game") {
+		codeGameVariant()
+	}
 })
