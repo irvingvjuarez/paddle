@@ -4,6 +4,7 @@ import cors from "cors"
 import { Player } from "./player.js";
 const PORT_NUMBER = 3000;
 const players = []
+const games = []
 
 const app = express()
 app.use(cors())
@@ -22,6 +23,16 @@ app.get("/join", (_req, res) => {
 app.post("/paddle/coords", (req, res) => {
 	const paddleCoords = req.body || {}
 	console.log({ players, paddleCoords })
+
+	res.end()
+})
+
+app.post("/game/new", (req, res) => {
+	const { gameCode, player } = req.body
+	const newGame = { gameCode, players: [player] }
+	games.push(newGame)
+
+	console.log({ gameCode })
 
 	res.end()
 })

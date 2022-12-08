@@ -1,6 +1,6 @@
 import { ball } from "../main.js";
-import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE, PADDLE_HEIGHT, PADDLE_WIDTH } from "./globals.js";
-import { intersectingBall } from "./services/intersectingBall.js";
+import { BORDER_PADDING, GAME_HEIGHT, GAME_WIDTH, MOVEMENT_VALUE, PADDLE_HEIGHT, PADDLE_WIDTH } from "../src/globals.js";
+import { intersectingBall } from "../src/services/intersectingBall.js";
 // import { sendCoords } from "./services/sendCoords.js";
 
 const halfPadding = BORDER_PADDING / 2

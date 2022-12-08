@@ -1,7 +1,7 @@
 import { Ball } from "./src/ball.js"
 import { Game } from "./src/game.js";
 import { movementListener } from "./src/listeners/movementListener.js";
-import { Paddle } from "./src/paddle.js";
+import { Paddle } from "./objects/paddle.js";
 // import { joinGame } from "./src/services/joinGame.js";
 
 // Registering path aliases
