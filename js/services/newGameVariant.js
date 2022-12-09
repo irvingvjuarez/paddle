@@ -18,6 +18,7 @@ export const newGameVariant = (mainContainer) => {
 	}
 
 	fetch(API_ROOT + "game/new", fetchConfig)
+		.then(req => console.log({ req }))
 
 	mainContainer.innerHTML = `
 		<section class="new-game-container">

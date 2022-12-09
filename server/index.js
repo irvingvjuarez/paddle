@@ -26,18 +26,21 @@ app.post("/paddle/coords", (req, res) => {
 	res.end()
 })
 
-app.post("/game-join", (req, res) => {
-	const { player, gameCode } = req.body
-	const chosenGame = games.find(game => game.gameCode === gameCode)
-
-	if (chosenGame) {
-		chosenGame.players.push(player)
-		console.log({ chosenGame })
-		res.status(200).send("Success")
-	} else {
-		res.status(404).send("Code not found")
-	}
+app.post("/game/join", (req, res) => {
+	res.send("hi")
 })
+// app.post("/game/join", (req, res) => {
+// 	const { player, gameCode } = req.body
+// 	const chosenGame = games.find(game => game.gameCode === gameCode)
+
+// 	if (chosenGame) {
+// 		chosenGame.players.push(player)
+// 		console.log({ chosenGame })
+// 		res.status(200).send("Success")
+// 	} else {
+// 		res.status(404).send("Code not found")
+// 	}
+// })
 
 app.post("/game/new", (req, res) => {
 	const { gameCode, player } = req.body

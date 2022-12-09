@@ -42,7 +42,7 @@ export const codeGameVariant = (mainContainer) => {
 			body: JSON.stringify({ player, gameCode })
 		}
 
-		fetch(API_ROOT + "game-join", reqConfig)
+		fetch(API_ROOT + "game/join", reqConfig)
 			.then(req => console.log({ req }))
 	})
 
