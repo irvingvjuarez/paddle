@@ -1,8 +1,6 @@
 import { codeGameVariant } from "./services/codeGameVariant.js"
 import { newGameVariant } from "./services/newGameVariant.js"
 
-console.log("Hello World")
-
 const newGameInput = document.getElementById("new-game")
 const codeGameInput = document.getElementById("code-game")
 const nextbutton = document.querySelector(".multi-player-form-submit")
