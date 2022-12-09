@@ -29,7 +29,7 @@ export const codeGameVariant = (mainContainer) => {
 
 	codeGameForm.addEventListener("submit", (evt) => {
 		evt.preventDefault()
-		const gameCode = codeInput.value
+		const gameCode = Number(codeInput.value)
 		const nickName = nicknameInput.value
 		const player = new Paddle()
 
