@@ -1,3 +1,6 @@
+import { API_ROOT } from "../../globals.js"
+import { Paddle } from "../../objects/paddle.js"
+
 export const codeGameVariant = (mainContainer) => {
 	mainContainer.innerHTML = `
 		<section class="code-game-container">
@@ -23,6 +26,25 @@ export const codeGameVariant = (mainContainer) => {
 
 	const codeGameForm = document.querySelector(".code-game-form")
 	const callToActionBtn = document.querySelector(".join-game-btn")
+
+	codeGameForm.addEventListener("submit", (evt) => {
+		evt.preventDefault()
+		const gameCode = codeInput.value
+		const nickName = nicknameInput.value
+		const player = new Paddle()
+
+		const reqConfig = {
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			method: "POST",
+			body: JSON.stringify({ player, gameCode })
+		}
+
+		fetch(API_ROOT + "game-join", reqConfig)
+			.then(req => console.log({ req }))
+	})
 
 	function availableButton() {
 		const isButtonAvailable = inputs.every(input => Boolean(input.value))
