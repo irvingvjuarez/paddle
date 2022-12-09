@@ -44,8 +44,8 @@
 }
 
 .multi-player-form-submit:disabled {
-	background-color: rgb(194, 198, 198);
-	color: rgb(135, 139, 139);
+	background-color: var(--bg-disabled);
+	color: var(--text-disabled);
 }
 .multi-player-form-submit {
 	cursor: pointer;
@@ -129,4 +129,8 @@
 	border: none;
 
 	cursor: pointer;
+}
+.code-game-form > button:disabled {
+	background-color: var(--bg-disabled);
+	color: var(--text-disabled);
 }

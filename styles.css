@@ -1,6 +1,8 @@
 :root {
 	--primary: #f3c200;
 	--secondary: #9e7b08;
+	--bg-disabled: rgb(194, 198, 198);
+	--text-disabled: rgb(135, 139, 139);
 }
 
 body {

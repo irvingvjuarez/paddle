@@ -12,8 +12,16 @@ export const codeGameVariant = (mainContainer) => {
 					<input id="nickname" type="text" placeholder="Ej. Bellakat" />
 				</div>
 
-				<button type="button">Join game</button>
+				<button disabled>Join game</button>
 			</form>
 		</section>
 	`
+
+	const codeInput = document.querySelector("#code")
+	const nicknameInput = document.querySelector("#nickname")
+	const codeGameForm = document.querySelector(".code-game-form")
+
+	console.log({
+		codeInput, nicknameInput, codeGameForm
+	})
 }

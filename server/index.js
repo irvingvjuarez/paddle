@@ -36,6 +36,16 @@ app.post("/game/new", (req, res) => {
 	res.end()
 })
 
+app.post("game/join", (req, res) => {
+	const { player, gameCode } = req.body
+	const chosenGame = games.find(game => game.gameCode === gameCode)
+	chosenGame.players.push(player)
+
+	console.log({ chosenGame })
+
+	res.send()
+})
+
 app.listen(PORT_NUMBER, () => {
 	console.log(`Server listening on http://localhost:${PORT_NUMBER}`)
 })
