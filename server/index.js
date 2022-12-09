@@ -3,7 +3,6 @@ import cors from "cors"
 
 import { Player } from "./player.js";
 const PORT_NUMBER = 3000;
-const players = []
 const games = []
 
 const app = express()
@@ -32,7 +31,7 @@ app.post("/game/new", (req, res) => {
 	const newGame = { gameCode, players: [player] }
 	games.push(newGame)
 
-	console.log({ gameCode })
+	console.log({ newGame })
 
 	res.end()
 })
