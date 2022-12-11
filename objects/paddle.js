@@ -6,7 +6,8 @@ import { intersectingBall } from "../src/services/intersectingBall.js";
 const halfPadding = BORDER_PADDING / 2
 
 export class Paddle {
-	constructor() {
+	constructor(nickname) {
+		this.nickname = nickname
 		this.coords = {
 			x: (GAME_WIDTH / 2) - (PADDLE_WIDTH / 2),
 			y: GAME_HEIGHT - PADDLE_HEIGHT - 10,

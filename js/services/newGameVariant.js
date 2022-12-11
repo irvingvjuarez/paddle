@@ -3,7 +3,8 @@ import { Paddle } from "../../objects/paddle.js";
 
 export const newGameVariant = (mainContainer) => {
 	const newGameCode = Math.ceil(Math.random() * 60000);
-	const player = new Paddle()
+	const currentPlayer = new Paddle("You")
+	const members = [currentPlayer]
 
 	const fetchConfig = {
 		headers: {
@@ -13,7 +14,7 @@ export const newGameVariant = (mainContainer) => {
     method: "POST",
     body: JSON.stringify({
 			gameCode: newGameCode,
-			player
+			currentPlayer
 		})
 	}
 
@@ -30,7 +31,9 @@ export const newGameVariant = (mainContainer) => {
 				<h3>Current room members</h3>
 
 				<article>
-					<span class="room-member">You</span>
+					${members.map(roomMember => `
+						<span class="room-member">${roomMember.nickname}</span>
+					`)}
 				</article>
 			</section>
 		</section>

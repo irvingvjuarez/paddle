@@ -31,7 +31,7 @@ export const codeGameVariant = (mainContainer) => {
 		evt.preventDefault()
 		const gameCode = Number(codeInput.value)
 		const nickName = nicknameInput.value
-		const player = new Paddle()
+		const player = new Paddle(nickName)
 
 		const reqConfig = {
 			headers: {
