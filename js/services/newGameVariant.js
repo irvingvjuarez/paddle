@@ -44,16 +44,17 @@ export const newGameVariant = (mainContainer) => {
 		</section>
 	`
 
+	const membersContainer = document.querySelector(".member-container")
+
 	setInterval(() => {
 		if (members.length < 2) {
 			fetchGameMembers()
 		} else {
-			const memberContainer = document.querySelector(".member-container")
-			const newMember = document.createElement("span")
-			newMember.classList.add("room-member")
-			newMember.textContent = members[1].nickname
-
-			memberContainer.appendChild(newMember)
+			membersContainer.innerHTML = `
+				${members.map(roomMember => `
+					<span class="room-member">${roomMember.nickname}</span>
+				`)}
+			`
 		}
 	}, 2000)
 }
