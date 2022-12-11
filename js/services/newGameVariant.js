@@ -44,8 +44,9 @@ export const newGameVariant = (mainContainer) => {
 		</section>
 	`
 
-	const fetchingMembers = setInterval(fetchGameMembers, 2000)
-	if (members.length > 1) {
-		clearInterval(fetchingMembers)
-	}
+	setInterval(() => {
+		if (members.length < 2) {
+			fetchGameMembers()
+		}
+	}, 2000)
 }

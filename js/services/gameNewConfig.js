@@ -1,4 +1,4 @@
-export const gameNewConfig = (gameCode, currentPlayer) => {
+export const gameNewConfig = (gameCode, player) => {
 	return {
 		headers: {
 			'Accept': 'application/json',
@@ -7,7 +7,7 @@ export const gameNewConfig = (gameCode, currentPlayer) => {
 		method: "POST",
 		body: JSON.stringify({
 			gameCode,
-			currentPlayer
+			player
 		})
 	}
 }
