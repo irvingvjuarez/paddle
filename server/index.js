@@ -10,13 +10,16 @@ app.use(cors())
 app.use(express.json())
 
 // GET
-app.get("/join", (_req, res) => {
-	const id = Math.random().toString();
-	const newPlayer = new Player(id)
-	players.push(newPlayer)
-
-	res.send(id)
+app.get("/game/members", (req, res) => {
+	res.send({ games })
 })
+// app.get("/join", (_req, res) => {
+// 	const id = Math.random().toString();
+// 	const newPlayer = new Player(id)
+// 	players.push(newPlayer)
+
+// 	res.send(id)
+// })
 
 // POST
 app.post("/paddle/coords", (req, res) => {

@@ -1,24 +1,29 @@
 import { API_ROOT } from "../../globals.js";
 import { Paddle } from "../../objects/paddle.js";
+import { gameNewConfig } from "./gameNewConfig.js";
 
 export const newGameVariant = (mainContainer) => {
 	const newGameCode = Math.ceil(Math.random() * 60000);
 	const currentPlayer = new Paddle("You")
 	const members = [currentPlayer]
-
-	const fetchConfig = {
-		headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify({
-			gameCode: newGameCode,
-			currentPlayer
-		})
+	const fetchGameMembers = () => {
+		fetch(API_ROOT + "game/members")
+			.then(req => req.json())
+			.then(data => {
+				const games = data.games || []
+				const chosenGame = games.find(game => game.gameCode === newGameCode)
+				if (chosenGame) {
+					if (chosenGame.players.length > 1) {
+						members.push(chosenGame.players[1])
+						console.log(members)
+					}
+				} else {
+					console.log("No chosen game. Throw Error")
+				}
+			})
 	}
 
-	fetch(API_ROOT + "game/new", fetchConfig)
+	fetch(API_ROOT + "game/new", gameNewConfig(newGameCode, currentPlayer))
 		.then(req => console.log({ req }))
 
 	mainContainer.innerHTML = `
@@ -38,4 +43,9 @@ export const newGameVariant = (mainContainer) => {
 			</section>
 		</section>
 	`
+
+	const fetchingMembers = setInterval(fetchGameMembers, 2000)
+	if (members.length > 1) {
+		clearInterval(fetchingMembers)
+	}
 }
